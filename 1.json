@@ -1,0 +1,54 @@
+{
+  "description": "Auto Afghan Mass XXL from 00 Seeds Bank is a feminised autoflowering cannabis variety with all the best characteristics of its Critical Mass Automatic genetic base crossed with an Afghan strain to give improved resin production and further reinforce its Afghan character.As an autoflowering plant, it can be cultivated outdoors from spring to autumn, but from mid-spring onwards is ideal for starting the most productive grows.Auto Afghan Mass XXL is a fast-flowering variety, needing only 65 days from germination before the ripe buds can be harvested, with yields as high as 450g per m2 indoors. Outdoors, depending on conditions plants will grow to around 80-100cm high and offer yields of 50 to 100g per plant depending on the size and the quality of care provided.Its aroma is powerful and heady, which is why when cultivated indoors we recommend the use of a charcoal filter or other anti-odour system to help to avoid giving yourself away.Potency, quality, flavour and production are the standout features of this easy-to-grow Indica, a plant that will leave growers of all levels highly satisfied with the results!00 Seeds Bank Auto Afghan Mass XXL info: Type: Feminized autoflowering seedsGenetics: Auto Afghan Mass XXLOutdoor season: April - NovemberComplete cycle: 60-65 days from germinationOutdoor yield: HighIndoor yield: 350-450g per m2\n__________________________________________________\nAMOC - All Marihuana Online Cards / AMOC Alpha Edition V.2342\nhttps://buschland.eu/amoccards/0-9/00_Seeds_Bank/Auto_Afghan_Mass_XXL/index.html\nhttps://avastari.eu\n",
+  "tokenID": "3530536726",
+  "name": "Auto Afghan Mass XXL (00 Seeds Bank) [3530536726]",
+  "image": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face1_800px.jpg",
+  "animation_url": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/00_Seeds_Bank__Auto_Afghan_Mass_XXL__3530536726.html?tokenID=3530536726",
+  "media": [
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face1_800px.jpg"
+    },
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face2_800px.jpg"
+    },
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face3_800px.jpg"
+    },
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face4_800px.jpg"
+    },
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face5_800px.jpg"
+    },
+    {
+      "type": "image/jpeg",
+      "value": "https://cfs.ninja/ipfs/QmYp5gtTp5393C7Ff3bUVinJZ7vHgNXj1famQYrp2KfXbT/img/face6_800px.jpg"
+    }
+  ],
+  "attributes": [
+    {
+      "display_type": "string",
+      "trait_type": "breeder",
+      "value": "00 Seeds Bank"
+    },
+    {
+      "display_type": "string",
+      "trait_type": "parents",
+      "value": "Auto Afghan Mass // Afghani"
+    },
+    { "display_type": "number", "trait_type": "buds", "value": "2.38" },
+    { "display_type": "number", "trait_type": "days", "value": "47" },
+    { "display_type": "number", "trait_type": "mass", "value": "4.65" },
+    { "display_type": "number", "trait_type": "force", "value": "5.37" },
+    { "display_type": "number", "trait_type": "yield", "value": "395.71" },
+    { "display_type": "number", "trait_type": "flavor", "value": "2.76" },
+    { "display_type": "number", "trait_type": "height", "value": "89.05" },
+    { "display_type": "number", "trait_type": "average", "value": "68.86" },
+    { "display_type": "number", "trait_type": "impression", "value": "4.00" }
+  ]
+}
