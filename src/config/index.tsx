@@ -1,6 +1,7 @@
 import { base,sepolia } from '@reown/appkit/networks'
 import type { AppKitNetwork } from '@reown/appkit/networks'
 import { Ethers5Adapter } from '@reown/appkit-adapter-ethers5'
+import { baseSepolia } from 'viem/chains'
 
 // Get projectId from https://cloud.reown.com
 export const projectId = import.meta.env.VITE_PROJECT_ID || "21f3987b39c12f1a6f0b31db1db79f96" // this is a public projectId only to use on localhost
@@ -18,7 +19,7 @@ export const metadata = {
 }
 
 // for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
-export const networks = [base,sepolia] as [AppKitNetwork, ...AppKitNetwork[]]
+export const networks = [base,sepolia,baseSepolia] as [AppKitNetwork, ...AppKitNetwork[]]
 
 // Set up Solana Adapter
 export const ethers5Adapter = new Ethers5Adapter();

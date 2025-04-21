@@ -25,7 +25,6 @@ import erc20 from "@/components/contracts/erc20.json";
 
 import addresses from "@/components/contracts/address.json";
 import { useToast } from "@/hooks/use-toast";
-import { add } from "date-fns";
 
 const tokens = [
   {
@@ -43,7 +42,7 @@ const tokens = [
   {
     symbol: "CAPITAL",
     name: "Capital Token",
-    address: addresses.capital,
+    address: addresses.capital, // when test on sopila then use capitalcontract and when test on basesopila thne use capital
     decimals: 18,
   },
 ];
@@ -88,9 +87,9 @@ console.log("signer", signer)
           amount,
           selectedToken.decimals
         );
-        const tx = await tokenContract.approve(addresses.capital, parsedAmount);
+        const tx = await tokenContract.approve(addresses.capitalcontract, parsedAmount);
         await tx.wait();
-console.log("txapproval", tx)
+console.log("tx", tx)
         toast({
           title: "Approval Successful",
           description: `Approved ${amount} ${selectedToken.symbol} for deposit`,
