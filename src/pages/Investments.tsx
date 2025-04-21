@@ -16,6 +16,9 @@ import capitalAbi from "@/components/contracts/captial.json";
 import addresses from "@/components/contracts/address.json";
 import { ethers } from "ethers";
 import { useAppKitAccount } from "@reown/appkit/react";
+import { MultiTokenDeposit } from "@/components/ui/MultiTokenDeposit";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 interface Investment {
   id: string;
   name: string;
@@ -213,48 +216,52 @@ const Investments = () => {
             </Card>
           </div>
 
-          {/* Investments Table */}
-          <div
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(20px)",
-              transition:
-                "opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s",
-            }}
-          >
-            <Card className="glass overflow-hidden">
-              <CardHeader className="pb-2">
-                <CardTitle>Investment Details</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableCaption>List of your current investments</TableCaption>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Amount</TableHead>
-                      <TableHead>Monthly Income</TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Return Rate
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell className="font-medium">Basic Plan</TableCell>
-                      <TableCell>
-                        {Number(totalInvestment).toFixed(3)}
-                      </TableCell>
-                      <TableCell>{monthlyIncome.toFixed(3)}</TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        {interest?.toString()}%
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Tabs for Investment Actions and Details */}
+          <Tabs defaultValue="details" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="details">Investment Details</TabsTrigger>
+              <TabsTrigger value="deposit">New Deposit</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="details">
+              <Card className="glass overflow-hidden">
+                <CardHeader className="pb-2">
+                  <CardTitle>Investment Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableCaption>List of your current investments</TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Amount</TableHead>
+                        <TableHead>Monthly Income</TableHead>
+                        <TableHead className="hidden md:table-cell">
+                          Return Rate
+                        </TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">Basic Plan</TableCell>
+                        <TableCell>
+                          {Number(totalInvestment).toFixed(3)}
+                        </TableCell>
+                        <TableCell>{monthlyIncome.toFixed(3)}</TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {interest?.toString()}%
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="deposit">
+              <MultiTokenDeposit />
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
 

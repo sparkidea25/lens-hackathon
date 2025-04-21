@@ -1,4 +1,7 @@
 {
   "erc20": "0x25E1E53d1B3C22dD94DfBf3C00671a78a3BBb585",
-  "capital": "0x30b78724461c9143b55f741528784Ea010FdC5Df"
+  "capital":"0x5b726e1247DC2569E7CaDa09Eb91D99dbb582250",
+  "capitalcontract":"0x8a2bc7bb9789fF0752D2155FeF401F58f35EB3aF",
+  "usdc": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "eth": "native"
 }
