@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, TrendingDown } from "lucide-react";
 import { usePageTransition } from "@/lib/animations";
 import capitalAbi from "@/components/contracts/captial.json";
+import capitalContractAbi from "@/components/contracts/capitalContract.json";
 import addresses from "@/components/contracts/address.json";
 import { ethers } from "ethers";
 import { useAppKitAccount } from "@reown/appkit/react";
@@ -35,8 +36,8 @@ const Investments = () => {
   const isVisible = usePageTransition();
   const [investments, setInvestments] = useState<Investment[]>([]);
   const [totalInvestment, setTotalInvestment] = useState("");
-  const [monthlyIncome, setMonthlyIncome] = useState(0);
-  const [interest, setInterest] = useState(0);
+  const [monthlyIncome, setMonthlyIncome] = useState("");
+  const [interest, setInterest] = useState("");
   useEffect(() => {
     getTotalInvestment();
     getInterestRate();
@@ -49,12 +50,12 @@ const Investments = () => {
       const signer = await provider.getSigner();
 
       const capitalContract = new ethers.Contract(
-        addresses.capital,
-        capitalAbi,
+        addresses.capitalcontract,
+        capitalContractAbi,
         signer
       );
       const address = await signer.getAddress();
-      const value = await capitalContract.getUserDeposit(address);
+      const value = await capitalContract.getUserAllDeposits(address);
       const finalvalue = ethers.utils.formatEther(value);
       console.log("final value", finalvalue);
       setTotalInvestment(finalvalue);
@@ -72,19 +73,37 @@ const Investments = () => {
       signer
     );
     const address = await signer.getAddress();
-    const interestRate = await capitalContract.interestRate();
+    const interestRate = await capitalContract.tokenInterestRates('0x25e1e53d1b3c22dd94dfbf3c00671a78a3bbb585');
     console.log("interest rate", interestRate);
-    setInterest(interestRate);
+    // const finalvalue = ethers.utils.formatEther(interestRate)
+    // console.log(finalvalue, 'another final value')
+    setInterest("2");
   };
 
-  const calculateMonthlyIncome = () => {
-    const annualRate = parseFloat(interest.toString()); // Interest rate in percentage
-    const totalInvestmentValue = parseFloat(totalInvestment);
+  const calculateMonthlyIncome = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = await provider.getSigner();
 
-    // Monthly Income = (Total Investment * (APR / 100)) / 12
-    const monthlyIncome = (totalInvestmentValue * (annualRate / 100)) / 12;
-    setMonthlyIncome(monthlyIncome);
-    console.log("monthly income", monthlyIncome);
+    const capitalContract = new ethers.Contract(
+      addresses.capitalcontract,
+      capitalContractAbi,
+      signer
+    );
+
+    const address = await signer.getAddress();
+    const interestRate = await capitalContract.calculateInterest(address, '0x25E1E53d1B3C22dD94DfBf3C00671a78a3BBb585');
+    console.log("interest rate", interestRate);
+    const finalvalue = ethers.utils.formatEther(interestRate)
+    // const ethValue = ethers.utils.formatUnits(finalvalue, 18);
+    // console.log("final value", ethValue);
+    setMonthlyIncome(finalvalue);
+    // const totalInvestmentValue = parseFloat(totalInvestment);
+    // const annualRate = parseFloat(interest.toString()); // Interest rate in percentage
+    // const totalInvestmentValue = parseFloat(totalInvestment);
+    // // Monthly Income = (Total Investment * (APR / 100)) / 12
+    // const monthlyIncome = (totalInvestmentValue * (annualRate / 100)) / 12;
+    // setMonthlyIncome(monthlyIncome);
+    // console.log("monthly income", monthlyIncome);
     // Here you can set the monthly income as a state or use it wherever you need
     // Example: setMonthlyIncome(monthlyIncome);
   };
@@ -179,7 +198,7 @@ const Investments = () => {
               <CardContent>
                 <div className="flex items-end justify-between">
                   <span className="text-3xl font-bold text-white">
-                    {monthlyIncome.toFixed(4)}
+                    {monthlyIncome}
                   </span>
                   <TrendingUp className="h-5 w-5 text-green-500" />
                 </div>
@@ -233,8 +252,7 @@ const Investments = () => {
                     <TableCaption>List of your current investments</TableCaption>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Name</TableHead>
-                        <TableHead>Amount</TableHead>
+                        <TableHead>Deposit</TableHead>
                         <TableHead>Monthly Income</TableHead>
                         <TableHead className="hidden md:table-cell">
                           Return Rate
@@ -243,13 +261,12 @@ const Investments = () => {
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        <TableCell className="font-medium">Basic Plan</TableCell>
                         <TableCell>
                           {Number(totalInvestment).toFixed(3)}
                         </TableCell>
-                        <TableCell>{monthlyIncome.toFixed(3)}</TableCell>
+                        <TableCell>{monthlyIncome}</TableCell>
                         <TableCell className="hidden md:table-cell">
-                          {interest?.toString()}%
+                          {interest}%
                         </TableCell>
                       </TableRow>
                     </TableBody>

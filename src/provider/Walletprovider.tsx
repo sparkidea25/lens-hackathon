@@ -7,10 +7,10 @@ import { ReactNode } from 'react';
 const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
-    chains: [baseSepolia],
+    chains: [sepolia],
     transports: {
       // RPC URL for each chain
-      [sepolia.id]: http('https://sepolia.infura.io/v3/cb60a7b9f4ad43aa98c34184a9684803'),
+      [sepolia.id]: http('https://base-mainnet.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe'),
 
       [baseSepolia.id]: http(
         'https://base-sepolia.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe',
