@@ -7,9 +7,11 @@ import { ReactNode } from 'react';
 const config = createConfig(
   getDefaultConfig({
     // Your dApps chains
-    chains: [baseSepolia],
+    chains: [sepolia],
     transports: {
       // RPC URL for each chain
+      [sepolia.id]: http('https://base-mainnet.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe'),
+
       [baseSepolia.id]: http(
         'https://base-sepolia.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe',
       ),
@@ -23,7 +25,7 @@ const config = createConfig(
 
     // Optional App Info
     appDescription: "Your App Description",
-    appUrl: "https://family.co", // your app's url
+    appUrl: "http://localhost:8080", // your app's url
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   }),
 );
