@@ -76,13 +76,11 @@ export function MultiTokenDeposit() {
 console.log("signer", signer)
       if (selectedToken.symbol !== "ETH") {
         const tokenContract = new ethers.Contract(
-          addresses.capitalcontract,
+          selectedToken.address,
           erc20,
           signer
         );
         console.log("tokenContract", tokenContract)
-
-
         const parsedAmount = ethers.utils.parseUnits(
           amount,
           selectedToken.decimals
