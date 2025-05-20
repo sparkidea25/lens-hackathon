@@ -17,13 +17,13 @@ const Index = () => {
       {/* <Steps /> */}
       
       {/* Footer section */}
-      <footer className="py-8 border-t border-white/10">
+      {/* <footer className="py-8 border-t border-white/10">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} CapitalFrens. All rights reserved.
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
