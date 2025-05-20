@@ -3,9 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { CustomConnectButton } from "./ui/CustomConnectButton";
-import { Web3Provider } from "@/provider/Walletprovider";
-
 import {
   useDisconnect,
   useAppKit,
@@ -37,7 +34,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     // { name: "Calculate", path: "/calculate" },
-    { name: "Investments", path: "/investments" },
+    // { name: "Investments", path: "/investments" },
   ];
 
   return (
@@ -66,11 +63,11 @@ const Navbar = () => {
                 to={item.path}
                 className={cn(
                   "relative text-sm font-medium transition-all duration-200",
-                  "hover:text-white after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px]",
+                  "hover:text-black after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px]",
                   "after:origin-left after:scale-x-0 after:bg-white after:transition-transform hover:after:scale-x-100",
                   location.pathname === item.path
-                    ? "text-white after:scale-x-100"
-                    : "text-gray-400"
+                    ? "text-black after:scale-x-100"
+                    : "text-gray-700"
                 )}
               >
                 {item.name}
@@ -125,7 +122,7 @@ const Navbar = () => {
               to={item.path}
               className={cn(
                 "text-lg font-medium transition-colors",
-                location.pathname === item.path ? "text-white" : "text-gray-400"
+                location.pathname === item.path ? "text-black" : "text-gray-700"
               )}
             >
               {item.name}
