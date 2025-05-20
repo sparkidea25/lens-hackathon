@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Steps />
+      {/* <Steps /> */}
       
       {/* Footer section */}
       <footer className="py-8 border-t border-white/10">
