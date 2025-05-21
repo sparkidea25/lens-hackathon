@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const FIXED_PROFILES = [
+export const FIXED_PROFILES = [
   { username: "nilesh.lens", url: "https://hey.xyz/u/nilesh", address: "0xda86780f3902ebe7a92204d939cf1e03009ecf18" },
   { username: "Chaoticmonk.lens", url: "https://hey.xyz/u/chaoticmonk", address: "0x45da50b5e5552ffd010e309d296c88e393d227ab" },
   { username: "infinati.lens", url: "https://hey.xyz/u/infinati", address: "0xa9aee5ed1b5ff1cc503298328defe11f6c0d2a8e" },
@@ -13,6 +13,7 @@ const FIXED_PROFILES = [
   { username: "Dydymoon.lens", url: "https://hey.xyz/u/dydymoon", address: "0x806346b423ddb4727c1f5dc718886430aa7ce9cf" },
   { username: "panwinyl", url: "https://hey.xyz/u/panwinyl", address: "0xfe6cdca35f6dc74cefbe33dbf2e5946c64ed1527" },
   { username: "Seliqui.lens", url: "https://hey.xyz/u/seliqui", address: "0xfe6cdca35f6dc74cefbe33dbf2e5946c64ed1527" },
+  // { username: "gelgit", url: "https://hey.xyz/u/gelgit", address: "0x860781B22C186C338ED49264f22c4E2540D5B593"}
 ];
 
 const Hero = () => {

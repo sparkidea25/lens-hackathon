@@ -1,20 +1,22 @@
 import { WagmiProvider, createConfig, http } from "wagmi";
-import { sepolia,baseSepolia } from "wagmi/chains"
+import { sepolia,baseSepolia, lens } from "wagmi/chains"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { ReactNode } from 'react';
+import { LensProvider } from "@lens-protocol/react-web";
+import { lensConfig } from "@/Client";
 
-const config = createConfig(
+export const wagmiConfig = createConfig(
   getDefaultConfig({
     // Your dApps chains
-    chains: [sepolia],
+    chains: [lens],
     transports: {
       // RPC URL for each chain
-      [sepolia.id]: http('https://base-mainnet.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe'),
+      [lens.id]: http('https://lens-mainnet.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe'),
 
-      [baseSepolia.id]: http(
-        'https://base-sepolia.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe',
-      ),
+      // [lens.id]: http(
+      //   'https://base-sepolia.g.alchemy.com/v2/79vPnd3wqJrJ8e_kcZSQvPmANuC9zMMe',
+      // ),
     },
 
     // Required API Keys
@@ -35,10 +37,13 @@ const queryClient = new QueryClient();
 
 export const Web3Provider = ({ children }: { children: ReactNode }) => {
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         {/* <IncomeCalculator /> */}
         <ConnectKitProvider>{children}</ConnectKitProvider>
+        <LensProvider config={lensConfig}>
+          {children}
+        </LensProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
