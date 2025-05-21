@@ -170,12 +170,13 @@ const Hero = () => {
                   <th className="py-3 px-4 text-left text-sm font-medium text-green-800">Ethereum Address</th>
                   <th className="py-3 px-4 text-left text-sm font-medium text-green-800">Tokens</th>
                   <th className="py-3 px-4 text-right text-sm font-medium text-green-800">Invest</th>
+                  <th className="py-3 px-4 text-right text-sm font-medium text-green-800">Send</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {isLoading ? (
                   <tr>
-                    <td colSpan="5" className="py-10 px-4 text-center text-gray-500">
+                    <td colSpan="6" className="py-10 px-4 text-center text-gray-500">
                       <div className="flex items-center justify-center">
                         <svg className="animate-spin h-5 w-5 mr-3 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -239,6 +240,14 @@ const Hero = () => {
                           onClick={(e) => e.stopPropagation()}
                         >
                           Invest
+                        </button>
+                      </td>
+                      <td className="py-3 px-4 text-right">
+                        <button 
+                          className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-1 px-4 rounded-md transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Save
                         </button>
                       </td>
                     </tr>

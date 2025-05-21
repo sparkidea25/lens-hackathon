@@ -14,6 +14,8 @@ import WalletConnect from "./components/WalletConnect";
 import "@rainbow-me/rainbowkit/styles.css";
 import { createAppKit } from "@reown/appkit/react";
 import { projectId, metadata, networks, ethers5Adapter } from "./config";
+import SavePage from "./components/SavePage";
+import InvestPage from "./components/InvestPage";
 // Create query client
 createAppKit({
   adapters: [ethers5Adapter],
@@ -38,6 +40,8 @@ const App = () => (
         <Route path="/calculate" element={<Calculate />} />
         <Route path="/connect" element={<WalletConnect />} />
         <Route path="/investments" element={<Investments />} />
+         <Route path="/save" element={<SavePage />} />
+        <Route path="/invest" element={<InvestPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
